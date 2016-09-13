@@ -15,8 +15,8 @@ module.exports = Object.assign({}, commonWebpack, {
     plugins: [
         //commonsPlugin 可以用于分析模块的共用代码, 单独打一个包出来
         new webpack.optimize.CommonsChunkPlugin('js/common.js'),
-        //热更新插件
-        new webpack.HotModuleReplacementPlugin(),
+        // 热更新（如果webpack-dev-server中添加了--hot，这里再次引用，热更新时就会报错）
+        // new webpack.HotModuleReplacementPlugin(),
         // 提取css为单文件
         new ExtractTextPlugin("css/style.css"),
         //React 官方提供的代码是已经合并的, 这个是 Webpack 不推荐的用法,
